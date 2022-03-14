@@ -5,12 +5,6 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 
 ## Unreleased
 
-- Added option `--uuid` when generating new migration. This can be used to set the type of item_id column to uuid for use with paper_trail on a database that uses uuid as primary key.
-
-- Added `in_after_callback` argument to `PaperTrail::RecordTrail#save_with_version`,
-  to allow the caller to indicate if this method is being called during an `after`
-  callback. Defaults to `false`.
-
 ### Breaking Changes
 
 - None
@@ -21,10 +15,31 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 
 ### Fixed
 
-- [#1373](https://github.com/paper-trail-gem/paper_trail/issues/1373) - Add instruction to use uuid type for item_id in migration.
+- None
 
-- [#1376](https://github.com/paper-trail-gem/paper_trail/pull/1376) -
-  Create a version record when associated object was changed the same as
+## 12.3.0 (2022-03-13)
+
+### Breaking Changes
+
+- None
+
+### Added
+
+- [#1371](https://github.com/paper-trail-gem/paper_trail/pull/1371) - Added
+  `in_after_callback` argument to `PaperTrail::RecordTrail#save_with_version`,
+  to allow the caller to indicate if this method is being called during an
+  `after` callback. Defaults to `false`.
+- [#1374](https://github.com/paper-trail-gem/paper_trail/pull/1374) - Added
+  option `--uuid` when generating new migration. This can be used to set the
+  type of item_id column to uuid for use with paper_trail on a database that
+  uses uuid as primary key.
+
+### Fixed
+
+- [#1373](https://github.com/paper-trail-gem/paper_trail/issues/1373) - Add
+  CLI option to use uuid type for item_id when generating migration.
+- [#1376](https://github.com/paper-trail-gem/paper_trail/pull/1376) - Create a
+  version record when associated object is touched. Restores the behavior of
   PaperTrail < v12.1.0.
 
 ## 12.2.0 (2022-01-21)
@@ -101,6 +116,8 @@ recommendations of [keepachangelog.com](http://keepachangelog.com/).
 
 ### Fixed
 
+- [#1281](https://github.com/paper-trail-gem/paper_trail/pull/1281) Rails:
+  Instead of an `Engine`, PT now provides a `Railtie`, which is simpler.
 - Expand kwargs passed to `save_with_version` using double splat operator - Rails 6.1 compatibility
 - [#1287](https://github.com/paper-trail-gem/paper_trail/issues/1287) - Fix 'rails db:migrate' error when run against an app with mysql2 adapter
 
